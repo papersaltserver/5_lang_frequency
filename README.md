@@ -11,6 +11,7 @@ This script allows you to find out top-10 most frequent file in any text.
  ```
  Sample output:
 ```
+The list of 10 most frequent words in your text in descending order:
 der
 die
 und

@@ -9,10 +9,10 @@ def load_data(filepath):
 
 
 def get_most_frequent_words(text, frequent_words_number):
-    text_list = text.strip("\\\",.\'\n").lower().split()
-    text_counter = Counter(text_list)
-    most_common_list_counter = text_counter.most_common(frequent_words_number)
-    most_common_list = [list_tuple[0] for list_tuple in most_common_list_counter]
+    word_list = text.strip("\\\",.\'\n").lower().split()
+    words_in_text_counter = Counter(word_list)
+    most_common_list_counter = words_in_text_counter.most_common(frequent_words_number)
+    most_common_list = [word for (word, _) in most_common_list_counter]
     return most_common_list
 
 
@@ -20,5 +20,6 @@ if __name__ == '__main__':
     text_data = load_data(sys.argv[1])
     frequent_words_number = 10
     most_frequent_words = get_most_frequent_words(text_data, frequent_words_number)
+    print("The list of {} most frequent words in your text in descending order: ".format(frequent_words_number))
     for frequent_word in most_frequent_words:
         print(frequent_word)
