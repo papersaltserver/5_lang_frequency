@@ -5,12 +5,12 @@ import re
 
 def load_data(filepath):
     with open(filepath) as text_file:
-        text_data = text_file.read()
-    return text_data
+        text_data_from_file = text_file.read()
+    return text_data_from_file
 
 
 def get_most_frequent_words(text, frequent_words_number):
-    word_list = re.sub(r'\W+_', '', text).lower().split()
+    word_list = re.sub(r'[^\s\w|_]+', '', text).lower().split()
     words_in_text_counter = Counter(word_list)
     most_common_list_counter = words_in_text_counter.most_common(
         frequent_words_number)
@@ -23,7 +23,7 @@ if __name__ == '__main__':
     frequent_words_number = 10
     most_frequent_words = get_most_frequent_words(
         text_data, frequent_words_number)
-    print("The list of {} most frequent words in your text in \
-    descending order: ".format(frequent_words_number))
+    print("The list of {} most frequent words in your text in "
+          "descending order: ".format(frequent_words_number))
     for frequent_word in most_frequent_words:
         print(frequent_word)
